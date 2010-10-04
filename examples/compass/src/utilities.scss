@@ -74,6 +74,43 @@ h2 {
     width: 50%;
     @include ellipsis; } }
 
+#baselines {
+  $max-baseline: 845px;
+  @include column(16);
+  ul {
+    @include horizontal-list-container;
+    font-family: Helvetica, sans-serif;
+    margin-bottom: 1em; }
+  $i: 1px;
+  $j: 2px;
+  @while $j <= $max-baseline * 5 {
+    $k: $i + $j;
+    $i: $j;
+    $j: $k;
+    $f: ceil($i/5) + 8;
+    .size-#{$f} {
+      font-size: $f;
+      vertical-align: baseline;
+      @include align-baseline( $f, 'Helvetica', $max-baseline); }
+  }
+  .align-px {
+    line-height: $max-baseline; }
+  li {
+    @include horizontal-list-item(false);
+    color: #666;
+    letter-spacing: 3px;
+    margin: 0 -0.1em;
+    text-align: center;
+    border: 1px solid #eee;
+    border-left: 0 none; }
+  dt {
+    float: left;
+    clear: left;
+    text-align: right;
+    font-size: 11px; }
+  dd {
+    overflow: hidden; } }
+
 #floats {
   @include column(16);
   .clearfix-example {

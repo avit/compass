@@ -1,0 +1,44 @@
+// Align text baselines for blocks with different font sizes, so both elements have the same height.
+//
+// Suitable for aligning single-line elements while keeping the same height.
+//
+// Block elements with different font-sizes and the same line-height have
+// their middles aligned vertically instead of the same baseline. Use this
+// to make floated or inline-block elements align on the same baseline.
+//
+// This mixin should be used on the smaller font-size element to align its
+// baseline to the larger text element's line-height.
+//
+// * $this-size: The font-size of this text
+// * $other-size: The font-size of the other, larger text
+// * $other-line-height: Optional, defaults to the same as $other-font-size (i.e. line-height: 1)
+
+@mixin align-baseline( $this-size, $font, $other-size, $other-line-height: 1 ) {
+  // Parameter errors
+  @if unit($this-size) != unit($other-size) {
+    @warn "#{$this-size} and #{$other-size} must be the same units to align line heights.";
+  }
+  @if unit($other-line-height) == 'px' and unit($other-size) != 'px' {
+    @warn "$other-line-height must be em or unitless when aligning relative sizes.";
+  }
+
+  // Set default for $other-line-height
+  @if unitless($other-line-height) and unit($other-size) == 'px' {
+    $other-line-height: $other-size * $other-line-height;
+  }
+
+  $times-fudge: 1.3068;
+  $verdana-fudge: 1.6017;
+  $helvetica-fudge: 1.375;
+  $line-padding: floor( ($other-line-height - $this-size) / 2 * $helvetica-fudge );
+  padding-top: $line-padding;
+  line-height: floor($other-line-height - $line-padding);
+}
+
+// Align text baselines for blocks with different font sizes, so that subsequent rows line up.
+//
+// Suitable for aligning multi-line elements with variable height.
+
+@mixin align-all-baselines() {
+
+}

@@ -143,6 +143,31 @@
         .example
           %h2 Ellipsis
           %p This long text is truncated at the end of the first line. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      #baselines
+        .example
+          %h2 Baselines
+          %p
+            The following horizontal list uses
+            %code.mixin align-baseline
+            to adjust the different font-sizes to the same baseline.
+          %ul.align-px
+            - i, j, max_baseline = 1, 2, 900
+            - while j <= max_baseline * 5
+              - k = i + j
+              - i = j
+              - j = k
+              - f = (i.to_f / 5).ceil + 8
+              %li{ 'class' => "size-#{f}px", 'title' => "#{f}px" }    I
+          %ul.align-em
+            %li.size-10em 1em
+            %li.size-12em 1.2em
+            %li.size-13em 1.3em
+            %li.size-14em 1.4em
+            %li.size-16em 1.6em
+            %li.size-18em 1.8em
+            %li.size-20em 2em
+            %li.size-24em 2.4em
+            %li.size-30em 3em
       #floats
         .example
           %h2 Floats
