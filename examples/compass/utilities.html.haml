@@ -151,6 +151,7 @@
             %code.mixin align-baseline
             to adjust the different font-sizes to the same baseline.
           %ul.align-px
+            // fibonacci sequence for font sizes, divided by 5 transitions between steps
             - i, j, max_baseline = 1, 2, 900
             - while j <= max_baseline * 5
               - k = i + j

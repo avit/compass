@@ -80,6 +80,7 @@ h2 {
   ul {
     @include horizontal-list-container;
     margin-bottom: 1em; }
+  // fibonacci sequence for font sizes, divided by 5 transitions between steps
   $i: 1px;
   $j: 2px;
   @while $j <= $max-baseline * 5 {

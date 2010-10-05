@@ -26,10 +26,13 @@
   @if unitless($other-line-height) and unit($other-size) == 'px' {
     $other-line-height: $other-size * $other-line-height;
   }
+  // TODO: handle em-based sizes?
 
   $times-fudge: 1.3068;
   $verdana-fudge: 1.6017;
   $helvetica-fudge: 1.3865;
+  // FIXME: use appropriate fudge factor based on font parameter.
+  // TODO: Make fudge factors global, so other fonts are configurable?
   $line-padding: floor( ($other-line-height - $this-size) / 2 * $times-fudge );
   padding-top: $line-padding;
   line-height: floor($other-line-height - $line-padding);
@@ -37,8 +40,8 @@
 
 // Align text baselines for blocks with different font sizes, so that subsequent rows line up.
 //
-// Suitable for aligning multi-line elements with variable height.
+// Suitable for aligning multi-line elements with variable overall height.
 
 @mixin align-all-baselines() {
-
+  // TODO: similar to align-baseline, but adjust baseline without changing line-height.
 }
