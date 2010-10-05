@@ -79,7 +79,6 @@ h2 {
   @include column(16);
   ul {
     @include horizontal-list-container;
-    font-family: Helvetica, sans-serif;
     margin-bottom: 1em; }
   $i: 1px;
   $j: 2px;
@@ -91,7 +90,7 @@ h2 {
     .size-#{$f} {
       font-size: $f;
       vertical-align: baseline;
-      @include align-baseline( $f, 'Helvetica', $max-baseline); }
+      @include align-baseline( $f, 'Times', $max-baseline); }
   }
   .align-px {
     line-height: $max-baseline; }
