@@ -43,5 +43,5 @@
 // Suitable for aligning multi-line elements with variable overall height.
 
 @mixin align-all-baselines() {
-  // TODO: similar to align-baseline, but adjust baseline without changing line-height.
+  // TODO: similar to align-baseline, but using padding-top only, without changing line-height.
 }
